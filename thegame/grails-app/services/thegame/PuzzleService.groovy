@@ -10,7 +10,12 @@ class PuzzleService {
         )
     }
 
-    public boolean submitAnswer(String code, int status, String teamId) {
-        return true
+    public boolean submitAnswer(String code, int pageNumber, String teamName) {
+        boolean correct = Solution.findByPageNumberAndCode(pageNumber, code)
+        if (correct) {
+            Team team = Team.findByName(teamName)
+            team.checkpointsCleared.put([(pageNumber): new Date()])
+        }
+        return correct
     }
 }
