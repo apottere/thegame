@@ -10,7 +10,7 @@ class PuzzleService {
         )
     }
 
-    public boolean submitAnswer(String code, String teamId) {
+    public boolean submitAnswer(String code, int status, String teamId) {
         return true
     }
 }
