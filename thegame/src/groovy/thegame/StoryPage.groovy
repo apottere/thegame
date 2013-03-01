@@ -4,6 +4,5 @@ class StoryPage {
     int pageNumber
     String title
     String intro
-    String timelocked
-    int lockDuration
+    Map<BigDecimal, String> timelockedText
 }
