@@ -5,5 +5,10 @@ package thegame
  */
 class Team {
     String name
-    int currentStatus
+    String password
+    Map<BigDecimal, Date> checkpointsCleared
+
+    public int currentStatus() {
+        return checkpointsCleared.keySet().max()
+    }
 }
