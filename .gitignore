@@ -38,7 +38,11 @@
 
 # "temporary" build files
 /target
+/target/*
+/thegame/target
+/thegame/target/*
 
 # other
 *.iws
-
+thegame/Thegame.iml
+.idea

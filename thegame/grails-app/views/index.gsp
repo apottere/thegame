@@ -24,7 +24,7 @@
 			}
 
 			#status ul {
-				font-size: 0.9em;
+				font-size: 0.8em;
 				list-style-type: none;
 				margin-bottom: 0.6em;
 				padding: 0;
@@ -41,7 +41,7 @@
 			}
 
 			#page-body {
-				margin: 2em 1em 1.25em 18em;
+				margin: 3em 1em 1.25em 18em;
 			}
 
 			h2 {
@@ -65,7 +65,7 @@
 				margin: 0.25em 0;
 			}
 
-			@media screen and (max-width: 480px) {
+			@media screen and (max-width: 1024px) {
 				#status {
 					display: none;
 				}
@@ -86,30 +86,22 @@
 		<div id="status" role="complementary">
 			<h1>Team Rankings</h1>
 			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
+				<li>Momma Loves Her Little Alien</li>
+				<li>Alien Armaggedon</li>
+				<li>Aliens Taste Like Chicken</li>
+				<li>Team Cheats A Lot</li>
+                <li>Aliens Love Cookies</li>
+				<li>Just Have to Outrun the Aliens</li>
+                <li>Earthlings for America</li>
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Welcome to the game. Yada yada yada.</p>
+			<h1>Welcome to the Game</h1>
 
 			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
+				<h2>The Story So Far...</h2>
 				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
+					Aliens. Rubber Chickens. Game on.
 				</ul>
 			</div>
 		</div>
