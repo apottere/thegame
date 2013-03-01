@@ -1,7 +1,7 @@
 grails { 
   mongo { 
     host = "localhost" 
-    port = 27107 
+    port = 27017
     username = ""
     password = ""
     databaseName = "theGame"
