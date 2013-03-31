@@ -102,6 +102,8 @@
 				<h2>The Story So Far...</h2>
 				<ul>
 					Aliens. Rubber Chickens. Game on.
+                    <p />
+                    <a href="authentication/">Sign in here</a>.
 
 
 				</ul>
