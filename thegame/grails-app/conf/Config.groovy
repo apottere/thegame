@@ -72,7 +72,7 @@ environments {
 }
 
 //authenticationUserClass = Team
-grails.validateable.classes = [com.grailsrocks.authentication.SignupForm, com.grailsrocks.authentication.LoginForm]
+// can remove - grails.validateable.classes = [com.grailsrocks.authentication.SignupForm, com.grailsrocks.authentication.LoginForm]
 
 // log4j configuration
 log4j = {
@@ -96,6 +96,6 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'security.Team'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'security.TeamDetails'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'security.TeamRole'
 grails.plugins.springsecurity.authority.className = 'security.Role'

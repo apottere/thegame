@@ -1,3 +1,6 @@
+<%@ page import="grails.plugins.springsecurity.SpringSecurityService" %>
+<% def springSecurityService %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -86,7 +89,7 @@
 		<div id="status" role="complementary">
 			<h1>Team Rankings</h1>
 			<ul>
-				<li>Momma Loves Her Little Alien</li>
+				<li>Original Index Page List</li>
 				<li>Alien Armaggedon</li>
 				<li>Aliens Taste Like Chicken</li>
 				<li>Team Cheats A Lot</li>
@@ -101,7 +104,20 @@
 			<div id="controller-list" role="navigation">
 				<h2>The Story So Far...</h2>
 				<ul>
-					Aliens. Rubber Chickens. Game on.
+					Aliens. Rubber Chickens. Game on.<p />
+
+
+
+                    <sec:ifLoggedIn>
+                        Congratulations,
+                        ${sec.loggedInUserInfo(field:"username")}
+                        Feel free to <g:link controller='logout' action='auth'>logout</g:link>
+                    </sec:ifLoggedIn>
+
+                    <sec:ifNotLoggedIn>
+                        If you're one of the participating teams, please <g:link controller='login' action='auth'>login</g:link>. This will give
+                        you full access to the event site, including details on the story and puzzles that you've earned access to.
+                    </sec:ifNotLoggedIn>
 
 
 				</ul>
