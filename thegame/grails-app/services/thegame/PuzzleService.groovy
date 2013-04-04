@@ -1,5 +1,7 @@
 package thegame
 
+import security.TeamDetails
+
 class PuzzleService {
 
     public StoryPage readPage(int pageNumber, String teamId) {

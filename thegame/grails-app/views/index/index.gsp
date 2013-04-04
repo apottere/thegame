@@ -89,13 +89,11 @@
 		<div id="status" role="complementary">
 			<h1>Team Rankings</h1>
 			<ul>
-				<li>Momma Loves Her Little Alien</li>
-				<li>Alien Armaggedon</li>
-				<li>Aliens Taste Like Chicken</li>
-				<li>Team Cheats A Lot</li>
-                <li>Aliens Love Cookies</li>
-				<li>Just Have to Outrun the Aliens</li>
-                <li>Earthlings for America</li>
+
+                <g:each in="${allTeams}" status="i" var="team">
+                    <li>${team.getTeamName()}</li>
+                </g:each>
+
 			</ul>
 		</div>
 		<div id="page-body" role="main">

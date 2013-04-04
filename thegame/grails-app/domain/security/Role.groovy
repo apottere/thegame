@@ -3,7 +3,7 @@ package security
 class Role {
 
 	String authority
-    static mapWith="mongo"
+    //static mapWith="mongo"
 
 	static mapping = {
 		cache true

@@ -6,7 +6,7 @@ class TeamRole implements Serializable {
 
 	Team team
 	Role role
-    static mapWith="mongo"
+    //static mapWith="mongo"
 
 	boolean equals(other) {
 		if (!(other instanceof TeamRole)) {
