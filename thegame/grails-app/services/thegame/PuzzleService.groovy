@@ -4,6 +4,7 @@ import security.TeamDetails
 
 class PuzzleService {
 
+    def springSecurityService
     public StoryPage readPage(int pageNumber, String teamId) {
         return new StoryPage(
                 pageNumber: 0,
@@ -13,9 +14,14 @@ class PuzzleService {
     }
 
     public boolean submitAnswer(String code, int pageNumber, String teamName) {
+        def team = springSecurityService.currentUser
 
         TeamDetails teamDetails = TeamDetails.findByTeamName(teamName)
-        if(![0,1].contains(pageNumber) && !teamDetails?.checkpointsCleared?.containsKey(pageNumber - 1)){
+        String key = pageNumber.toString()
+        if(teamDetails.id != team?.id){
+            return false
+        }
+        if(![0,1].contains(pageNumber) && !teamDetails?.checkpointsCleared?.containsKey(Integer.toString(pageNumber - 1))){
             return false
         }
 
@@ -23,9 +29,10 @@ class PuzzleService {
         boolean correct = solution.code.equalsIgnoreCase(code)
         if (correct) {
             teamDetails.checkpointsCleared = teamDetails.checkpointsCleared ?: [:]
-            teamDetails.checkpointsCleared.put(pageNumber.toString(), new Date())
-
-            teamDetails.save(flush:true)
+            if(!teamDetails.checkpointsCleared.containsKey(key)){
+                teamDetails.checkpointsCleared.put(key, new Date())
+                teamDetails.save(flush:true)
+            }
 
         }
         return correct
