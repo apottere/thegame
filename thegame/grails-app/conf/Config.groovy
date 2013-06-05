@@ -97,3 +97,13 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'security.TeamDetails'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'security.TeamRole'
 grails.plugins.springsecurity.authority.className = 'security.Role'
+
+grails.plugins.springsecurity.useSecurityEventListener = true
+grails.plugins.springsecurity.onInteractiveAuthenticationSuccessEvent = { e, appCtx ->
+   def currentUser = appCtx.getBean("springSecurityService").currentUser
+   if(!currentUser.checkpointsCleared || !currentUser.checkpointsCleared.size() == 0){
+       currentUser.checkpointsCleared = [:]
+       currentUser.checkpointsCleared.put("1", new Date())
+       currentUser.save(flush:true)
+   }
+}
