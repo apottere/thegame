@@ -1,6 +1,6 @@
 package thegame
 
-import security.TeamDetails
+import security.Team
 
 class PuzzleService {
 

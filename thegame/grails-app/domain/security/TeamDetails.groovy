@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.User
 class TeamDetails extends Team {
 
     //String teamName
-    //static mapWith="mongo"
+    static mapWith="mongo"
 
     int status
 

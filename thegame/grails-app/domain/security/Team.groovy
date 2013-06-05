@@ -12,7 +12,7 @@ class Team {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-    //static mapWith="mongo"
+    static mapWith="mongo"
 
 	static constraints = {
 		username blank: false, unique: true
