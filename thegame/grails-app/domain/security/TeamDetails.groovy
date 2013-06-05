@@ -11,11 +11,9 @@ class TeamDetails extends Team {
     //String teamName
     static mapWith="mongo"
 
-    int status
-
     Map<BigDecimal, Date> checkpointsCleared
 
     public int currentStatus() {
-        return checkpointsCleared.keySet().max()
+        return checkpointsCleared?.keySet()?.max() ?: 1
     }
 }

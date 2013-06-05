@@ -10,9 +10,11 @@ class hudController {
     }
 
     def viewPage() {
-        int pageNumber = params.page ?: (springSecurityService.currentUser).currentStatus()
-        Map model = [displayPage: pageService.readPage(pageNumber)]
+        int pageNumber = params.page as Integer ?: (springSecurityService.currentUser).currentStatus()
+        Map model = [
+            displayPage: pageService.readPage(pageNumber)
+        ]
 
-        return model
+        render(view: "story", model: model)
     }
 }
