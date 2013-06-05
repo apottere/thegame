@@ -5,7 +5,6 @@ class StoryPage {
     String title
     String intro
     Map<BigDecimal, String> timelockedText
-    String completion
 }
 
 
