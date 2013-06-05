@@ -14,11 +14,6 @@ class TeamDetails extends Team {
     Map<String, Date> checkpointsCleared
 
     public int currentStatus() {
-
-        if (!checkpointsCleared) {
-            checkpointsCleared = ["1": new Date()]
-            this.save()
-        }
         return checkpointsCleared.keySet().max() as int
     }
 

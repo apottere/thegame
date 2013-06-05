@@ -30,6 +30,11 @@ class LoginController {
 	 */
 	def index = {
 		if (springSecurityService.isLoggedIn()) {
+            TeamDetails team = springSecurityService.currentUser
+            if (! team.checkpointsCleared) {
+                team.checkpointsCleared = ["1": new Date()]
+                team.save(flush: true)
+            }
 			redirect uri: SpringSecurityUtils.securityConfig.successHandler.defaultTargetUrl
 		}
 		else {
