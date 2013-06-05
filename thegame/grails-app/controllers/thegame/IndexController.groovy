@@ -4,8 +4,10 @@ import security.TeamDetails
 
 class IndexController {
 
+    def springSecurityService
+
     def index() {
-        def team = security.TeamDetails.get(1)
+        def team = springSecurityService.currentUser
         //[team : team]
         def allTeams = TeamDetails.getAll()
         [team: team, allTeams : allTeams]
