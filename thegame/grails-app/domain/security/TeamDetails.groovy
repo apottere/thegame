@@ -13,9 +13,16 @@ class TeamDetails extends Team {
 
     int status
 
-    Map<BigDecimal, Date> checkpointsCleared
+    Map<String, Date> checkpointsCleared
 
     public int currentStatus() {
         return checkpointsCleared.keySet().max()
     }
+
+    def beforeUpdate(){
+        if(TeamDetails.get(id).password != password){
+            encodePassword()
+        }
+    }
+
 }

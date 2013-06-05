@@ -1,6 +1,6 @@
 package thegame
 
-import security.Team
+import security.TeamDetails
 
 class PuzzleService {
 
@@ -13,10 +13,20 @@ class PuzzleService {
     }
 
     public boolean submitAnswer(String code, int pageNumber, String teamName) {
-        boolean correct = Solution.findByPageNumberAndCode(pageNumber, code)
+
+        TeamDetails teamDetails = TeamDetails.findByTeamName(teamName)
+        if(![0,1].contains(pageNumber) && !teamDetails?.checkpointsCleared?.containsKey(pageNumber - 1)){
+            return false
+        }
+
+        Solution solution = Solution.findByPageNumber(pageNumber)
+        boolean correct = solution.code.equalsIgnoreCase(code)
         if (correct) {
-            Team team = Team.findByName(teamName)
-            team.checkpointsCleared.put([(pageNumber): new Date()])
+            teamDetails.checkpointsCleared = teamDetails.checkpointsCleared ?: [:]
+            teamDetails.checkpointsCleared.put(pageNumber.toString(), new Date())
+
+            teamDetails.save(flush:true)
+
         }
         return correct
     }

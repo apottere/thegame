@@ -31,11 +31,12 @@ class Team {
 		encodePassword()
 	}
 
-	def beforeUpdate() {
-		if (isDirty('password')) {
-			encodePassword()
-		}
-	}
+
+//	def beforeUpdate() {
+//		if (isDirty('password')) {
+//			encodePassword()
+//		}
+//	}
 
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
