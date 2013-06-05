@@ -1,5 +1,7 @@
 package thegame
 
+import security.Team
+
 class LoginService {
 
     public boolean login(String teamName, String password) {
