@@ -104,11 +104,10 @@
 				<ul>
 					Aliens. Rubber Chickens. Game on.<p />
 
-
-
                     <sec:ifLoggedIn>
                         Congratulations,
                         ${team.teamName}
+                        <p />
                         Feel free to <g:link controller='logout'>logout</g:link>
                     </sec:ifLoggedIn>
 

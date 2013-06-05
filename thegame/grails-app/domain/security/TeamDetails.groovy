@@ -8,12 +8,12 @@ import org.springframework.security.core.userdetails.User
  */
 class TeamDetails extends Team {
 
-    String teamName
+    //String teamName
     //static mapWith="mongo"
 
     int status
 
-    //Map<BigDecimal, Date> checkpointsCleared
+    Map<BigDecimal, Date> checkpointsCleared
 
     public int currentStatus() {
         return checkpointsCleared.keySet().max()
