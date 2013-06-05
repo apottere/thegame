@@ -11,9 +11,21 @@ class TeamDetails extends Team {
     //String teamName
     static mapWith="mongo"
 
-    Map<BigDecimal, Date> checkpointsCleared
+    Map<String, Date> checkpointsCleared
 
     public int currentStatus() {
-        return checkpointsCleared?.keySet()?.max() ?: 1
+
+        if (!checkpointsCleared) {
+            checkpointsCleared = ["1": new Date()]
+            this.save()
+        }
+        return checkpointsCleared.keySet().max() as int
     }
+
+    def beforeUpdate(){
+        if(TeamDetails.get(id).password != password){
+            encodePassword()
+        }
+    }
+
 }

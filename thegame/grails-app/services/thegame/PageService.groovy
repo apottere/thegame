@@ -26,6 +26,13 @@ class PageService {
         "Answer unclear, ask again later."
     ]
 
+    StoryPage dummy = new StoryPage(
+        pageNumber: 1,
+        title: "testPage1",
+        intro: "This is only a test. If this were an actual puzzle, you would have been told what to do.",
+        timelockedText: [(new BigDecimal(10000)): "Time is on our side.", (new BigDecimal(60000)): "One minute later."]
+    )
+
     DisplayPage readPage(int pageNumber) {
 
         TeamDetails team = springSecurityService.currentUser
@@ -35,7 +42,7 @@ class PageService {
         )
 
         if (pageNumber <= page.maxPage) {
-            StoryPage storyPage = StoryPage.findByPageNumber(pageNumber)
+            StoryPage storyPage = dummy //StoryPage.findByPageNumber(pageNumber)
             page.title = storyPage.title
             page.revealedText = [storyPage.intro]
             long start = team.checkpointsCleared.get(pageNumber).time
@@ -44,7 +51,7 @@ class PageService {
                 end = team.checkpointsCleared.get(pageNumber+1).time
             } else {
                 end = new Date().time
-                long next = storyPage.timelockedText.keySet().find{it > end}
+                long next = storyPage.timelockedText.keySet().find{start + it > end} ?: 0
                 if (next) {
                     page.nextReveal = new Date(next)
                 }
