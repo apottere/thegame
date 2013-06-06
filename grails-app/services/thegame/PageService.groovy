@@ -30,7 +30,7 @@ class PageService {
         pageNumber: 1,
         title: "testPage1",
         intro: "This is only a test. If this were an actual puzzle, you would have been told what to do.",
-        timelockedText: [(new BigDecimal(10000)): "Time is on our side.", (new BigDecimal(60000)): "One minute later.", (new BigDecimal(6000000)): "One Hundred minutes later."]
+        timelockedText: ["10000": "Time is on our side.", "60000": "One minute later.", "6000000": "One Hundred minutes later."]
     )
 
     DisplayPage readPage(int pageNumber) {
@@ -42,16 +42,16 @@ class PageService {
         )
 
         if (pageNumber <= page.maxPage) {
-            StoryPage storyPage = dummy //StoryPage.findByPageNumber(pageNumber)
+            StoryPage storyPage = StoryPage.findByPageNumber(pageNumber)
             page.title = storyPage.title
             page.revealedText = [storyPage.intro]
             long start = team.checkpointsCleared.get(pageNumber.toString()).time
             long end
             if (pageNumber < page.maxPage) {
-                end = team.checkpointsCleared.get(pageNumber+1).time
+                end = team.checkpointsCleared.get(((pageNumber as int) + 1).toString()).time
             } else {
                 end = new Date().time
-                long next = storyPage.timelockedText.keySet().find{start + it > end} ?: 0
+                long next = (storyPage.timelockedText.keySet().find{start + (it as long) > end} ?: 0) as long
                 if (next) {
                     page.nextReveal = new Date(next)
                 }
@@ -69,7 +69,7 @@ class PageService {
     private List<String> timelockedText(long start, long end, StoryPage storyPage) {
         List<String> text = []
         for (entry in storyPage.timelockedText) {
-            if (start + entry.key < end) {
+            if (start + (entry.key as long) < end) {
                 text.add(entry.value)
             }
         }

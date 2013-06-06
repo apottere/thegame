@@ -9,6 +9,17 @@
             <p>${text}</p>
         </g:each>
 
+        <g:if test="${displayPage.pageNumber==displayPage.maxPage}">
+            <g:if test="${wrong}">
+                <p>REJECTED!</p>
+            </g:if>
+            <g:form action="answerPuzzle">
+                <input type="text" name="code">
+                <input type="hidden" value="${displayPage.pageNumber}" name="pageNumber">
+                <input type="submit" value="Submit">
+            </g:form>
+        </g:if>
+
         Stylish Navigation:
         <g:set var="num" value="${1}" />
         <g:while test="${num <= displayPage.maxPage }">
