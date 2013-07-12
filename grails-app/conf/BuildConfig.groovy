@@ -35,6 +35,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
+//        runtime 'postgresql:postgresql:8.4-702.jdbc3' //heroku wants this
+
     }
 
     plugins {
@@ -49,5 +51,6 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         compile ':cache:1.0.0'
+
     }
 }
