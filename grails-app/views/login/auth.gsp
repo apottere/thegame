@@ -30,6 +30,9 @@
 		text-align: left;
 		border: 1px solid #aab;
 		background-color: #fff;
+    -moz-box-shadow: 0 0 1em #255b17;
+	  -webkit-box-shadow: 0 0 1em #255b17;
+    box-shadow: 0 0 1em #255b17;
 	}
 
 	#login .inner .fheader {
