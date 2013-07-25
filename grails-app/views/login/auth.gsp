@@ -3,32 +3,37 @@
 	<meta name='layout' content='main'/>
 	<title><g:message code="springSecurity.login.title"/></title>
 	<style type='text/css' media='screen'>
+  html,
+  body{
+    background-color: #000;
+    background-image: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
 	#login {
-		margin: 15px 0px;
-		padding: 0px;
+		margin: 15px 0;
+		padding: 0;
 		text-align: center;
 	}
 
 	#login .inner {
-		width: 340px;
+		width: 300px;
 		padding-bottom: 6px;
 		margin: 60px auto;
 		text-align: left;
 		border: 1px solid #aab;
-		background-color: #f0f0fa;
-		-moz-box-shadow: 2px 2px 2px #eee;
-		-webkit-box-shadow: 2px 2px 2px #eee;
-		-khtml-box-shadow: 2px 2px 2px #eee;
-		box-shadow: 2px 2px 2px #eee;
+		background-color: #7efa8b;
 	}
 
 	#login .inner .fheader {
 		padding: 18px 26px 14px 26px;
-		background-color: #f7f7ff;
-		margin: 0px 0 14px 0;
-		color: #2e3741;
+		background-color: #000;
+		margin: 0 0 14px 0;
+		color: #fee629;
 		font-size: 18px;
 		font-weight: bold;
+    text-align: center;
 	}
 
 	#login .inner .cssform p {
@@ -56,17 +61,29 @@
 
 	#login #remember_me_holder {
 		padding-left: 120px;
+    padding-top: 0;
+    line-height: 12px;
 	}
+
+  #login .inner .cssform p.submit_holder{
+    padding: 0;
+    margin-top: 40px;
+  }
 
 	#login #submit {
-		margin-left: 15px;
+		display: block;
+    margin: 0 auto;
 	}
 
+  #login #remember_me_holder input {
+    float: left;
+  }
+
 	#login #remember_me_holder label {
-		float: none;
+		float: left;
 		margin-left: 0;
 		text-align: left;
-		width: 200px
+    padding: 0 0 0 5px;
 	}
 
 	#login .inner .login_message {
@@ -81,6 +98,17 @@
 	#login .inner .chk {
 		height: 12px;
 	}
+
+  #login .inner .cssform p.back_button {
+    text-align: left;
+    padding: 0 0 0 10px;
+    margin-bottom: 10px;
+  }
+
+  #login .back_button a{
+    text-decoration: none;
+    color: #eb8913;
+  }
 	</style>
 </head>
 
@@ -109,9 +137,12 @@
 				<label for='remember_me'><g:message code="springSecurity.login.remember.me.label"/></label>
 			</p>
 
-			<p>
+			<p class="submit_holder">
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
+      <p class="back_button">
+        <a href="/thegame">&larr; Home</a>
+      </p>
 		</form>
 	</div>
 </div>

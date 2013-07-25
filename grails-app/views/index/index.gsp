@@ -84,7 +84,7 @@
 		</style>
 	</head>
 	<body>
-        <img src="images/aliensHeader.png">
+        <img src="images/aliensHeader.png" width="100%">
 
 		<div id="status" role="complementary">
 			<h1>Team Rankings</h1>
