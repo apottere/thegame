@@ -3,9 +3,15 @@
 	<meta name='layout' content='main'/>
 	<title><g:message code="springSecurity.login.title"/></title>
 	<style type='text/css' media='screen'>
-  html,
-  body{
+  html{
     background-color: #000;
+    background-image: -moz-linear-gradient(center top, #ddd, #000);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ddd), color-stop(1, #000));
+    background-image: linear-gradient(top, #ddd, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#dddddd', EndColorStr = '#000000');
+  }
+  body{
+    background: transparent;
     background-image: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -23,7 +29,7 @@
 		margin: 60px auto;
 		text-align: left;
 		border: 1px solid #aab;
-		background-color: #7efa8b;
+		background-color: #fff;
 	}
 
 	#login .inner .fheader {
@@ -73,6 +79,9 @@
 	#login #submit {
 		display: block;
     margin: 0 auto;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #aaa;
 	}
 
   #login #remember_me_holder input {
@@ -99,15 +108,15 @@
 		height: 12px;
 	}
 
-  #login .inner .cssform p.back_button {
+  #login .inner .cssform p.home_button {
     text-align: left;
     padding: 0 0 0 10px;
     margin-bottom: 10px;
   }
 
-  #login .back_button a{
+  #login .home_button a{
     text-decoration: none;
-    color: #eb8913;
+    color: #48802c;
   }
 	</style>
 </head>
@@ -140,7 +149,7 @@
 			<p class="submit_holder">
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
-      <p class="back_button">
+      <p class="home_button">
         <a href="/thegame">&larr; Home</a>
       </p>
 		</form>
