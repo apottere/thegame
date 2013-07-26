@@ -154,7 +154,7 @@
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
       <p class="home_button">
-        <a href="/thegame">&larr; Home</a>
+        <a href="${createLink(uri: '/')}">&larr; Home</a>
       </p>
 		</form>
 	</div>

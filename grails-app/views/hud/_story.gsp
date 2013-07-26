@@ -18,9 +18,9 @@
 <g:set var="num" value="${1}" />
 <g:while test="${num <= displayPage.maxPage }">
     <g:if test="${displayPage.pageNumber != num}">
-        <g:link class="page-nav" controller="/" params="[page: num]">
+        <a href="?page=${num}" class="page-nav">
            ${num++}
-        </g:link>
+        </a>
     </g:if>
     <g:else>
         <strong class="page-nav">${num++}</strong>
