@@ -34,11 +34,11 @@ class BootStrap {
                     +"the twin planets of Binar. Some asteroid miner was under arrest for defacing the rings of Zetan. Routine stuff really.</p>"
                     +"<h3>*PING*</h3><p>That's odd. There's another signal you don't recognize. It's a language you've never seen before, perhaps some "
                     +"sort of code. And it looks like it's coming from ... earth orbit?! There aren't any ships scheduled.  You need to get this to "
-                    +"the Head of Alien Reconaissance on the double!</p>",
+                    +"the Head of Alien Reconnaissance on the double!</p>",
                 timelockedText: [
-                        "0":"Sadly you don't actually know your way around that well, yet. You should stop by the Information Desk",
-                        "1800000":"Your past determines your future. Watch your step.",
-                        "3000000":"Final path revealed here"
+                        "0":"Sadly you don't actually know your way around that well, yet. You should stop by the Information Desk.",
+                        "60000":"Your past determines your future. Watch your step.",
+                        "90000":"Final path revealed here."
                 ]
             ).save(flush:true, status: 0)
 
@@ -51,16 +51,16 @@ class BootStrap {
                 title: "Missing Management",
                 intro: "<p>Ninety-three En Pee? 93-NP! It's an element, neptunium! But why? It has to be connected to the director's disappearance somehow.</p>"
                     +"<p>*You pop open your Elemental Radiometric Positioner*</p>"
-                    +"<p>There it is! There's a large consentration of neptunium down at the Waterfront.  It's time to take the team off site and investigate.</p>",
+                    +"<p>There it is! There's a large concentration of neptunium down at the Waterfront.  It's time to take the team off site and investigate.</p>",
                 timelockedText: [
-                    "600000": "Puzzle 2 Description!",
-                    "2400000": "First Puzzle 2 Hint!",
-                    "3600000": "Second Puzzle 2 Hint!"
+                    "0": "Puzzle 2 Description!",
+                    "60000": "First Puzzle 2 Hint!",
+                    "90000": "Second Puzzle 2 Hint!"
                 ]
             ).save(flush: true, status: 0)
 
             new Solution(
-                pageNumber: 1,
+                pageNumber: 2,
                 code: "answer"
             ).save(flush:true, status: 0)
         }

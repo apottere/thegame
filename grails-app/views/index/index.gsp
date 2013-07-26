@@ -20,6 +20,7 @@
 				-moz-border-radius: 0.6em;
 				-webkit-border-radius: 0.6em;
 				border-radius: 0.6em;
+        position: absolute;
 			}
 
 			.ie6 #status {
@@ -44,7 +45,7 @@
 			}
 
 			#page-body {
-				margin: 3em 1em 1.25em 18em;
+				margin: 3em 3em 1.25em 18em;
 			}
 
 			h2 {
@@ -90,34 +91,38 @@
 			<h1>Team Rankings</h1>
 			<ul>
 
-                <g:each in="${allTeams}" status="i" var="team">
-                    <li>${team.getTeamName()}</li>
-                </g:each>
+      <g:each in="${allTeams}" status="i" var="team">
+          <li>${team.getTeamName()}</li>
+      </g:each>
 
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to the Game</h1>
+			<span class="welcome-login-holder">
+        <h1>Welcome to the Game</h1>
+        <sec:ifLoggedIn>
+          <g:link class="logout" controller='logout'>logout</g:link>
+        </sec:ifLoggedIn>
+        <sec:ifNotLoggedIn>
+          <g:link class="login" controller='login' action='auth'>login</g:link>
+        </sec:ifNotLoggedIn>
+      </span>
 
 			<div id="controller-list" role="navigation">
 				<h2>The Story So Far...</h2>
-				<ul>
-					Aliens. Rubber Chickens. Game on.<p />
+          <span>Aliens. Rubber Chickens. Game on.</span>
 
-                    <sec:ifLoggedIn>
-                        Congratulations,
-                        ${team.teamName}
-                        <p />
-                        Feel free to <g:link controller='logout'>logout</g:link>
-                    </sec:ifLoggedIn>
+          <sec:ifLoggedIn>
+              <span class="congrats">Hello, Team ${team.teamName}</span>
+              <span class="story">
+                <g:include controller="hud" action="viewPage"/>
+              </span>
+          </sec:ifLoggedIn>
 
-                    <sec:ifNotLoggedIn>
-                        If you're one of the participating teams, please <g:link controller='login' action='auth'>login</g:link>. This will give
-                        you full access to the event site, including details on the story and puzzles that you've earned access to.
-                    </sec:ifNotLoggedIn>
-
-
-				</ul>
+          <sec:ifNotLoggedIn>
+              If you're one of the participating teams, please <g:link controller='login' action='auth'>login</g:link>. This will give
+              you full access to the event site, including details on the story and puzzles that you've earned access to.
+          </sec:ifNotLoggedIn>
 			</div>
 		</div>
 	</body>

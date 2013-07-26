@@ -17,15 +17,15 @@ class hudController {
             wrong: params.wrong
         ]
 
-        render(view: "story", model: model)
+        render(template: "story", model: model)
     }
 
     def answerPuzzle() {
         int pageNumber = params.pageNumber as int
         if (puzzleService.submitAnswer(params.code, pageNumber)) {
-            redirect(action: "viewPage", params: [page: pageNumber++])
+            redirect(controller: "/", params: [page: pageNumber+1])
         } else {
-            redirect(action: "viewPage", params: [page: pageNumber, wrong: true])
+            redirect(controller: "/", params: [page: pageNumber, wrong: true])
         }
     }
 }

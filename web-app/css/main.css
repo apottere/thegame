@@ -37,7 +37,7 @@ html * {
 }
 
 body {
-	height: 100%;
+    min-height: 100%;
 	background: #ffffff;
 	color: #333333;
 	margin: 0 auto;
@@ -594,4 +594,85 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+.welcome-login-holder{
+  position: relative;
+  display: block;
+}
+
+.logout, .login{
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.congrats {
+  display: block;
+  border-bottom: 1px dotted green;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.story p {
+  text-align: justify;
+}
+
+.stage {
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.page-nav {
+  margin-right: 5px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+}
+
+.story strong.page-nav {
+  border-color: green;
+  color: black;
+  background-color: yellow;
+
+  -moz-box-shadow: 0 0 3px 1px #aaaaaa;
+  -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
+  box-shadow: 0 0 3px 1px #aaaaaa;
+}
+
+.story a.page-nav {
+  font-weight: bold;
+  color: green;
+  text-decoration: none;
+  border: 1px dotted black;
+  background-color: #efefef;
+
+}
+
+
+#page-body {
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.story p.incorrect {
+  color: red;
+  font-weight: bold;
+}
+input[type=submit]{
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.timelocked{
+  font-weight: bold;
+}
+.timelocked:before {
+  content: "\2192   ";
 }

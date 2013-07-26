@@ -79,4 +79,18 @@
 	.error ul {
 		margin-left: 0;
 	}
+
+    form {
+      text-align: center;
+    }
+    input[type=submit]{
+      margin-top: 10px;
+      width: 150px;
+    }
+    .story h3{
+      text-align: center;
+    }
+    .story p.incorrect{
+      text-align:center;
+    }
 }

@@ -115,6 +115,7 @@
     text-align: left;
     padding: 0 0 0 10px;
     margin-bottom: 10px;
+    font-weight: bold;
   }
 
   #login .home_button a{

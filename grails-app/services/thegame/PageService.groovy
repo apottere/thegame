@@ -70,7 +70,7 @@ class PageService {
         List<String> text = []
         for (entry in storyPage.timelockedText) {
             if (start + (entry.key as long) < end) {
-                text.add(entry.value)
+                text.add('<span class=\'timelocked\'>'+entry.value+'</span>')
             }
         }
         return text
