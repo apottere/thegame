@@ -1,4 +1,4 @@
-<h3>${displayPage.title}</h3>
+<h3>Chapter ${displayPage.pageNumber}. ${displayPage.title}</h3>
 <g:each in="${displayPage.revealedText}" var="text">
     <p>${text}</p>
 </g:each>
@@ -14,7 +14,7 @@
     </g:form>
 </g:if>
 
-<div class="stage">Stage #:</div>
+<div class="stage">Chapter:</div>
 <g:set var="num" value="${1}" />
 <g:while test="${num <= displayPage.maxPage }">
     <g:if test="${displayPage.pageNumber != num}">

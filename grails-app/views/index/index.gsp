@@ -7,10 +7,17 @@
 		<meta name="layout" content="main"/>
 		<title>Aliens vs Earthlings</title>
 		<style type="text/css" media="screen">
+      .story h3{
+        text-align: center;
+      }
+      .contents {
+        position: relative;
+        padding-bottom: 1em;
+      }
 			#status {
 				background-color: #eee;
 				border: .2em solid #fff;
-				margin: 2em 2em 1em;
+				margin: .25em 2em 1em;
 				padding: 1em;
 				width: 12em;
 				float: left;
@@ -21,6 +28,7 @@
 				-webkit-border-radius: 0.6em;
 				border-radius: 0.6em;
         position: absolute;
+        top: 0;
 			}
 
 			.ie6 #status {
@@ -45,7 +53,7 @@
 			}
 
 			#page-body {
-				margin: 3em 3em 1.25em 18em;
+				margin: 1em 3em 1.25em 18em;
 			}
 
 			h2 {
@@ -69,9 +77,12 @@
 				margin: 0.25em 0;
 			}
 
-			@media screen and (max-width: 1024px) {
+			@media screen and (max-width: 800px) {
 				#status {
-					display: none;
+          left: 50%;
+          margin-left: -7em;
+          position: relative;
+          float: none;
 				}
 
 				#page-body {
@@ -85,22 +96,14 @@
 		</style>
 	</head>
 	<body>
-        <img src="images/aliensHeader.png" width="100%">
+  <img src="images/aliensHeader.png" width="100%">
 
-		<div id="status" role="complementary">
-			<h1>Team Rankings</h1>
-			<ul>
-
-      <g:each in="${allTeams}" status="i" var="team">
-          <li>${team.getTeamName()}</li>
-      </g:each>
-
-			</ul>
-		</div>
+  <div class="contents">
 		<div id="page-body" role="main">
 			<span class="welcome-login-holder">
         <h1>Welcome to the Game</h1>
         <sec:ifLoggedIn>
+          <span class="congrats">Hello, team ${team.teamName}</span>
           <g:link class="logout" controller='logout'>logout</g:link>
         </sec:ifLoggedIn>
         <sec:ifNotLoggedIn>
@@ -109,11 +112,8 @@
       </span>
 
 			<div id="controller-list" role="navigation">
-				<h2>The Story So Far...</h2>
-          <span>Aliens. Rubber Chickens. Game on.</span>
-
           <sec:ifLoggedIn>
-              <span class="congrats">Hello, Team ${team.teamName}</span>
+              <h1>The story so far...</h1>
               <span class="story">
                 <g:include controller="hud" action="viewPage"/>
               </span>
@@ -125,5 +125,17 @@
           </sec:ifNotLoggedIn>
 			</div>
 		</div>
+
+    <div id="status" role="complementary">
+			<h1>Team Rankings</h1>
+			<ul>
+
+      <g:each in="${allTeams}" status="i" var="team">
+          <li>${team.getTeamName()}</li>
+      </g:each>
+
+			</ul>
+		</div>
+  </div>
 	</body>
 </html>
