@@ -621,6 +621,10 @@ a.skip {
   text-align: justify;
 }
 
+.story p img {
+  width: 100%;
+}
+
 .stage {
   display: inline-block;
   margin-top: 25px;
