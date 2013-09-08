@@ -13,15 +13,15 @@ class PuzzleService {
         )
     }
 
-    public boolean submitAnswer(String code, int pageNumber) {
+    public boolean submitAnswer(String answer, int pageNumber) {
         TeamDetails team = springSecurityService.currentUser
 
         if(!team?.checkpointsCleared?.containsKey(Integer.toString(pageNumber))){
             return false
         }
 
-        Solution solution = Solution.findByPageNumber(pageNumber)
-        boolean correct = solution.code.equalsIgnoreCase(code)
+        List<Solution> solution = Solution.findAllByPageNumber(pageNumber)
+        boolean correct = solution.any{it.code.equalsIgnoreCase(answer)} //if any solution matches the answer
         if (correct) {
             String checkpoint = (pageNumber + 1).toString()
             team.checkpointsCleared = team.checkpointsCleared ?: [:]
