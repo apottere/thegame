@@ -10,7 +10,7 @@ class hudController {
         render("Webpage!")
     }
 
-    def viewPage() {
+    def chapter() {
         int pageNumber = params.page as Integer ?: (springSecurityService.currentUser).currentStatus()
         Map model = [
             displayPage: pageService.readPage(pageNumber),
@@ -21,11 +21,11 @@ class hudController {
     }
 
     def answerPuzzle() {
-        int pageNumber = params.pageNumber as int
-        if (puzzleService.submitAnswer(params.code, pageNumber)) {
-            redirect(controller: "/", params: [page: pageNumber+1])
+        int pageNumber = params.pageNumber as Integer
+        if (puzzleService.submitAnswer((String)params.answer, pageNumber)) {
+            redirect(uri: "/")
         } else {
-            redirect(controller: "/", params: [page: pageNumber, wrong: true])
+            redirect(controller: "/", fragment: "answer", params: [wrong: true])
         }
     }
 }

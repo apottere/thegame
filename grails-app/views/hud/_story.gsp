@@ -8,7 +8,7 @@
         <p id="answer" class="incorrect">INCORRECT!</p>
     </g:if>
     <g:form action="answerPuzzle">
-        <input type="text" name="code">
+        <input type="text" name="answer">
         <input type="hidden" value="${displayPage.pageNumber}" name="pageNumber">
         <input type="submit" value="Submit">
     </g:form>

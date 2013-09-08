@@ -115,7 +115,7 @@
           <sec:ifLoggedIn>
               <h1>The story so far...</h1>
               <span class="story">
-                <g:include controller="hud" action="viewPage"/>
+                <g:include controller="hud" action="chapter"/>
               </span>
           </sec:ifLoggedIn>
 
