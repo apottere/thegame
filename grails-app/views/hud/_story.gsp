@@ -5,7 +5,7 @@
 
 <g:if test="${displayPage.pageNumber==displayPage.maxPage}">
     <g:if test="${wrong}">
-        <p class="incorrect">INCORRECT!</p>
+        <p id="answer" class="incorrect">INCORRECT!</p>
     </g:if>
     <g:form action="answerPuzzle">
         <input type="text" name="code">
@@ -26,3 +26,7 @@
         <strong class="page-nav">${num++}</strong>
     </g:else>
 </g:while>
+
+<script type="text/javascript">
+  setTimeout(function(){location.reload();}, 120000);
+</script>
