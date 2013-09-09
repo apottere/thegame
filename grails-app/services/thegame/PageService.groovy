@@ -51,7 +51,7 @@ class PageService {
                 end = team.checkpointsCleared.get(((pageNumber as int) + 1).toString()).time
             } else {
                 end = new Date().time
-                long next = (storyPage.timelockedText.keySet().find{start + (it as long) > end} ?: 0) as long
+                long next = (storyPage.timelockedText?.keySet()?.find{start + (it as long) > end} ?: 0) as long?: 0
                 if (next) {
                     page.nextReveal = new Date(next)
                 }

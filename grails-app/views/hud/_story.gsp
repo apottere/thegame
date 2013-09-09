@@ -3,16 +3,16 @@
     <p>${text}</p>
 </g:each>
 
-<g:if test="${displayPage.pageNumber==displayPage.maxPage}">
-    <g:if test="${wrong}">
-        <p id="answer" class="incorrect">INCORRECT!</p>
-    </g:if>
-    <g:form action="answerPuzzle">
-        <input type="text" name="answer">
-        <input type="hidden" value="${displayPage.pageNumber}" name="pageNumber">
-        <input type="submit" value="Submit">
-    </g:form>
-</g:if>
+  <g:if test="${!isFinalPage && displayPage.pageNumber==displayPage.maxPage}">
+      <g:if test="${wrong}">
+          <p id="answer" class="incorrect">INCORRECT!</p>
+      </g:if>
+      <g:form action="answerPuzzle">
+          <input type="text" name="answer">
+          <input type="hidden" value="${displayPage.pageNumber}" name="pageNumber">
+          <input type="submit" value="Submit">
+      </g:form>
+  </g:if>
 
 <div class="stage">Chapter:</div>
 <g:set var="num" value="${1}" />

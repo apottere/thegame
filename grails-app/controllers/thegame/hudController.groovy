@@ -12,9 +12,11 @@ class hudController {
 
     def chapter() {
         int pageNumber = params.page as Integer ?: (springSecurityService.currentUser).currentStatus()
+        DisplayPage displayPage = pageService.readPage(pageNumber)
         Map model = [
-            displayPage: pageService.readPage(pageNumber),
-            wrong: params.wrong
+            displayPage: displayPage,
+            wrong: params.wrong,
+            isFinalPage: displayPage.pageNumber == StoryPage.count()
         ]
 
         render(template: "story", model: model)
