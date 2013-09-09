@@ -625,6 +625,15 @@ a.skip {
   width: 100%;
 }
 
+#controller-list .story ul {
+  list-style-position: outside;
+  margin-left: 40px
+}
+
+#controller-list .story ul li {
+  list-style-position: outside;
+}
+
 .stage {
   display: inline-block;
   margin-top: 25px;
