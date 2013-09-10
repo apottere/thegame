@@ -68,9 +68,16 @@ class PageService {
 
     private List<String> timelockedText(long start, long end, StoryPage storyPage) {
         List<String> text = []
+        boolean firstText = true
         for (entry in storyPage.timelockedText) {
-            if (start + (entry.key as long) < end) {
-                text.add('<span class=\'timelocked\'>'+entry.value+'</span>')
+            if (start + (entry.key as long) <= end) {
+                if(firstText){ //we expect that the first entry in the timelocked entries isn't a 'hint'
+                  text.add(entry.value)
+                }
+                else{
+                  text.add('<span class=\'timelocked\'>'+entry.value+'</span>')
+                }
+                firstText = false
             }
         }
         return text

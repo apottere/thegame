@@ -113,7 +113,6 @@
 
 			<div id="controller-list" role="navigation">
           <sec:ifLoggedIn>
-              <h1>The story so far...</h1>
               <span class="story">
                 <g:include controller="hud" action="chapter"/>
               </span>

@@ -25,6 +25,7 @@ class hudController {
     def answerPuzzle() {
         int pageNumber = params.pageNumber as Integer
         if (puzzleService.submitAnswer((String)params.answer, pageNumber)) {
+            flash.success = true
             redirect(uri: "/")
         } else {
             redirect(controller: "/", fragment: "answer", params: [wrong: true])

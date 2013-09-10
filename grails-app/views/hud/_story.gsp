@@ -1,3 +1,7 @@
+<g:if test="${flash.success}">
+<p class="correct">CORRECT ANSWER!</p>
+</g:if>
+
 <h3>Chapter ${displayPage.pageNumber}. ${displayPage.title}</h3>
 <g:each in="${displayPage.revealedText}" var="text">
     <p>${text}</p>
@@ -5,7 +9,7 @@
 
   <g:if test="${!isFinalPage && displayPage.pageNumber==displayPage.maxPage}">
       <g:if test="${wrong}">
-          <p id="answer" class="incorrect">INCORRECT!</p>
+          <p id="answer" class="incorrect">INCORRECT ANSWER!</p>
       </g:if>
       <g:form action="answerPuzzle">
           <input type="text" name="answer">
