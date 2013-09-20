@@ -48,7 +48,7 @@ class PageService {
             long start = team.checkpointsCleared.get(pageNumber.toString()).time
             long end
             if (pageNumber < page.maxPage) {
-                end = team.checkpointsCleared.get(((pageNumber as int) + 1).toString()).time
+                end = (storyPage.timelockedText?.keySet()?.first() as long ?: 0)+start //show the intro text //team.checkpointsCleared.get(((pageNumber as int) + 1).toString()).time
             } else {
                 end = new Date().time
                 long next = (storyPage.timelockedText?.keySet()?.find{start + (it as long) > end} ?: 0) as long?: 0
@@ -82,4 +82,6 @@ class PageService {
         }
         return text
     }
+
+  //todo: reveal first timelocked entry on correct answer
 }
