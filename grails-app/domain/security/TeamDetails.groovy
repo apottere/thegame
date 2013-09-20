@@ -14,7 +14,7 @@ class TeamDetails extends Team {
     Map<String, Date> checkpointsCleared
 
     public int currentStatus() {
-        return checkpointsCleared.keySet().collect{it as int}.max()//because keys are strings, max() has to be done on their integer forms
+        return checkpointsCleared?checkpointsCleared?.keySet().collect{it as int}.max():0 //because keys are strings, max() has to be done on their integer forms
     }
 
     def beforeUpdate(){
