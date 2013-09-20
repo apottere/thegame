@@ -129,7 +129,7 @@
 			<h1>Team Rankings</h1>
 			<ul>
 
-      <g:each in="${allTeams}" status="i" var="team">
+      <g:each in="${allTeams.sort{it.currentStatus()}.reverse()}" status="i" var="team">
           <li>${team.getTeamName()}</li>
       </g:each>
 
