@@ -4,6 +4,6 @@
       <title>Chapter ${displayPage.pageNumber}</title>
     </head>
     <body>
-      <g:render template="story"/>
+        <g:render template="story"/>
     </body>
 </html>
